@@ -11,25 +11,16 @@ import SwiftUI
 
 class MainWindowController: NSWindowController {
 
-    lazy var hostingView: NSView = {
-        let view = NSHostingView(rootView: MainView())
-        view.autoresizingMask = [.width, .height]
-        return view
-    }()
+    override func windowDidLoad() {
+        super.windowDidLoad()
 
-    lazy var contentView: NSView = {
-        let view = NSVisualEffectView()
-        view.autoresizingMask = [.width, .height]
-        view.addSubview(hostingView)
-        return view
-    }()
-
-    override var window: NSWindow? {
-        didSet {
-            window?.delegate = self
-            window?.contentView = contentView
-            window?.toolbar = NSToolbar()
+        if let contentView = self.window?.contentView {
+            let hostingView = NSHostingView(rootView: MainView())
+            hostingView.frame = contentView.frame
+            hostingView.autoresizingMask = [.width, .height]
+            contentView.addSubview(hostingView)
         }
+
     }
 }
 

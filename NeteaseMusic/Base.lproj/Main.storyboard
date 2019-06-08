@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14814" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14810.11" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="Mhq-pi-dGU">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14814"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14810.11"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,11 +674,86 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NeteaseMusic" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="YKL-Od-0Zc">
+            <objects>
+                <windowController showSeguePresentationStyle="single" id="Mhq-pi-dGU" customClass="MainWindowController" customModule="NeteaseMusic" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="NeteaseMusic" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="Mgp-bb-fLo">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="960" height="600"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <value key="minSize" type="size" width="960" height="600"/>
+                        <toolbar key="toolbar" implicitIdentifier="062701DA-7471-4E45-BF1A-8661502C8A71" displayMode="iconAndLabel" sizeMode="regular" id="umw-rS-GSA">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="F3971B79-B608-4A91-8E47-D8968F90F493" label="Back/Forward" paletteLabel="Back/Forward" sizingBehavior="auto" id="rzD-yw-ria" userLabel="Back/Forward">
+                                    <nil key="toolTip"/>
+                                    <segmentedControl key="view" verticalHuggingPriority="750" id="f5a-Cj-jOJ">
+                                        <rect key="frame" x="5" y="14" width="71" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <segmentedCell key="cell" borderStyle="border" alignment="left" style="texturedSquare" trackingMode="momentary" id="CYo-d2-bmg">
+                                            <font key="font" metaFont="system"/>
+                                            <segments>
+                                                <segment image="NSGoBackTemplate" width="32"/>
+                                                <segment image="NSGoForwardTemplate" width="32" tag="1"/>
+                                            </segments>
+                                        </segmentedCell>
+                                    </segmentedControl>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="6FD8C9A0-FF37-44D2-BBA8-54B3CDDFB530" label="Search" paletteLabel="Search" sizingBehavior="auto" id="Tlz-Yk-iin" userLabel="Search">
+                                    <nil key="toolTip"/>
+                                    <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="6HG-7m-p1P">
+                                        <rect key="frame" x="0.0" y="14" width="96" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="fCm-4j-KIX">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                    </searchField>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="0yF-9F-MLk"/>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="DVG-DP-nru"/>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="rzD-yw-ria"/>
+                                <toolbarItem reference="DVG-DP-nru"/>
+                                <toolbarItem reference="Tlz-Yk-iin"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="Mhq-pi-dGU" id="E4i-fk-wNv"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="B0P-fI-3zj" kind="relationship" relationship="window.shadowedContentViewController" id="Zbs-Ud-CA6"/>
+                    </connections>
+                </windowController>
+                <customObject id="ybq-ES-GCB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="600"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="1NX-fK-QSL">
+            <objects>
+                <viewController showSeguePresentationStyle="single" id="B0P-fI-3zj" sceneMemberID="viewController">
+                    <visualEffectView key="view" appearanceType="inheritedVibrantLight" blendingMode="behindWindow" material="underWindowBackground" state="followsWindowActiveState" id="dbW-Zy-33g">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </visualEffectView>
+                </viewController>
+                <customObject id="5qe-Tn-YDb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1200"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="NSGoBackTemplate" width="9" height="12"/>
+        <image name="NSGoForwardTemplate" width="9" height="12"/>
+    </resources>
 </document>
